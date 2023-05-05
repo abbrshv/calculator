@@ -19,21 +19,18 @@ function selectOperation(button) {
       return (a, b) => a + b;
     case "minus":
       return (a, b) => a - b;
+    case "equals":
+      return () => result;
   }
 }
 
 function operate() {
-  if (inputText !== "") operands.push(Number(inputText));
   if (operands.length === 2) {
     result = operation(operands[0], operands[1]);
     operands[0] = result;
-    if (result === Infinity) {
-      result = "Error";
-      operands.length = 0;
-    }
     displayText.textContent = result;
+    operands.pop();
   }
-  inputText = "";
 }
 
 function handleNumBtnClick(event) {
@@ -42,9 +39,11 @@ function handleNumBtnClick(event) {
 }
 
 function handleOperBtnClick(event) {
+  if (inputText !== "") {
+    operands.push(Number(inputText));
+    inputText = "";
+  }
   operate();
-  if (event.target.value === "equals") return;
-  if (operands.length >= 2) operands.pop();
   operation = selectOperation(event.target);
 }
 
