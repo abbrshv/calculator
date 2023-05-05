@@ -29,7 +29,6 @@ function operate() {
   }
   if (operands.length === 2) {
     result = operation(operands[0], operands[1]);
-    operands.length = 2;
     operands[0] = result;
     if (result === Infinity) {
       result = "Error";
@@ -46,22 +45,19 @@ function handleNumBtnClick(event) {
 }
 
 function handleOperBtnClick(event) {
-  if (operands.length === 2) {
+  operate();
+  if (event.target.value === "equals") return;
+  if (operands.length >= 2) {
     operands.pop();
   }
   operation = selectOperation(event.target);
-  operate();
 }
 
 function handleComaBtnClick(event) {
   if (!inputText.includes(".")) {
-    inputText += ".";
+    inputText += inputText === "" ? "0." : ".";
   }
   displayText.textContent = inputText;
-}
-
-function handleEqualsBtnClick(event) {
-  operate();
 }
 
 numberButtons.forEach((btn) =>
@@ -70,5 +66,4 @@ numberButtons.forEach((btn) =>
 operatorButtons.forEach((btn) =>
   btn.addEventListener("click", handleOperBtnClick)
 );
-btnEquals.addEventListener("click", handleEqualsBtnClick);
 btnComa.addEventListener("click", handleComaBtnClick);
