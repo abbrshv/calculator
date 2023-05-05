@@ -23,9 +23,7 @@ function selectOperation(button) {
 }
 
 function operate() {
-  if (inputText !== "") {
-    operands.push(Number(inputText));
-  }
+  if (inputText !== "") operands.push(Number(inputText));
   if (operands.length === 2) {
     result = operation(operands[0], operands[1]);
     operands[0] = result;
@@ -46,16 +44,12 @@ function handleNumBtnClick(event) {
 function handleOperBtnClick(event) {
   operate();
   if (event.target.value === "equals") return;
-  if (operands.length >= 2) {
-    operands.pop();
-  }
+  if (operands.length >= 2) operands.pop();
   operation = selectOperation(event.target);
 }
 
 function handleComaBtnClick(event) {
-  if (!inputText.includes(".")) {
-    inputText += inputText === "" ? "0." : ".";
-  }
+  if (!inputText.includes(".")) inputText += inputText === "" ? "0." : ".";
   displayText.textContent = inputText;
 }
 
