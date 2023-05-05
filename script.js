@@ -2,7 +2,6 @@ const displayText = document.querySelector(".display-text");
 const numberButtons = document.querySelectorAll(".btn-num");
 const operatorButtons = document.querySelectorAll(".btn-op");
 const btnComa = document.querySelector(".btn-coma");
-const btnEquals = document.querySelector(".btn-equals");
 
 let inputText = "";
 displayText.textContent = "0";
