@@ -7,8 +7,60 @@
 }
 
 :root {
-  background-color: ghostwhite;
+  background: ghostwhite;
   font-family: 'Noto Serif', cursive;
-  font-size: calc(15px + 0.390625vw);
+  font-size: 18px;
   color: #333333;
+}
+
+.container {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.calculator-body {
+  display: grid;
+  grid-template: repeat(3, 55px) / repeat(4, 55px);
+  gap: 5px;
+}
+
+.display-text {
+  grid-column: span 4;
+  text-align: right;
+  font-size: 40px;
+}
+
+button {
+  width: 55px;
+  height: 55px;
+  border: none;
+  border-radius: 50px;
+  outline: none;
+  background: lightgray;
+  font-size: inherit;
+}
+
+.btn-op, .btn-num {
+  color: ghostwhite;
+}
+
+.btn-op {
+  background: burlywood;
+  font-size: 1.5rem;
+  color: ghostwhite;
+}
+
+.btn-num {
+  background: darkgray;
+}
+
+.btn-num__0 {
+  grid-column: span 2;
+  width: 115px;
+}
+
+.btn-num__dot {
+  font-size: 1.5em;
 }
