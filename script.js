@@ -1,11 +1,10 @@
-const displayText = document.querySelector(".display-text");
-const btnClear = document.querySelector(".btn-clear");
-const btnSign = document.querySelector(".btn-sign");
-const btnPercent = document.querySelector(".btn-percent");
-const btnComa = document.querySelector(".btn-coma");
-const numberButtons = document.querySelectorAll(".btn-num");
-const operatorButtons = document.querySelectorAll(".btn-op");
-
+const displayText = document.querySelector(".display-text"),
+  btnClear = document.querySelector(".btn-clear"),
+  btnSign = document.querySelector(".btn-sign"),
+  btnPercent = document.querySelector(".btn-percent"),
+  btnComa = document.querySelector(".btn-num__dot"),
+  numberButtons = document.querySelectorAll(".btn-num"),
+  operatorButtons = document.querySelectorAll(".btn-op");
 let inputText;
 let operands = [];
 let operation;
@@ -23,6 +22,8 @@ function selectOperation(button) {
       return (a, b) => a - b;
     case "equals":
       return () => result;
+    default:
+      break;
   }
 }
 
