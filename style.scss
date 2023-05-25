@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 
 * {
   margin: 0;
@@ -8,8 +8,9 @@
 
 :root {
   background: ghostwhite;
-  font-family: 'Noto Serif', cursive;
-  font-size: 18px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 20px;
+  font-weight: 500;
   color: #333333;
 }
 
@@ -39,7 +40,14 @@ button {
   border-radius: 50px;
   outline: none;
   background: lightgray;
+  font-family: inherit;
   font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
+button:active {
+  filter: brightness(120%);
 }
 
 .btn-op, .btn-num {
